@@ -1,0 +1,77 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<head>
+
+<br> </br>
+</head>
+
+
+<body>
+<center>
+
+	<h1> GMAIL - LIKE </h1>
+	<br> </br>
+
+
+</center>
+
+<!-----------------------RECEIVE EMAIL------------------>
+
+ <center>
+
+
+<div class="form">
+  <%= form_tag(emails_path, method: :post, class: "form", remote: true) do %>
+
+    <button class="btn btn-danger" type="submit"> <%= submit_tag 'Recevoir un email', :object => 'commit'%>
+	</button>
+
+  <% end %>
+</div>
+</center>
+
+<!---------------------------------------------------->
+
+<!----------------------------------------------------->
+
+
+	<br> </br>
+
+<!-----------------------LIST EMAILS------------------>
+
+
+<div class = "container">
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col em "> Liste des emails </th>
+      <th scope="col"> Email sélectionné </th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr class="table table-light">
+      <tr id="email-list" >
+  <% @emails.each do |email|  %> </tr>
+               <p><%= link_to "See this email", email_path(email) %> </p>
+
+      <td > "<%= email.object %>" </td>
+
+      <td> <%= email.body  %> </td>
+
+        <% end %>    </tr>
+
+ 
+  </tbody>
+</table>
+</div>
+
+
+
+</center>
+</body>
+
+<!---------------------------------------------------->
+
+
+
